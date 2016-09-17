@@ -1,9 +1,8 @@
 'use strict';
 
-angular.module('inspinia', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap' ])
+var app = angular.module('inspinia', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap' ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-
         .state('index', {
             abstract: true,
             url: "/index",
@@ -23,3 +22,4 @@ angular.module('inspinia', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', '
     $urlRouterProvider.otherwise('/index/main');
   })
 ;
+

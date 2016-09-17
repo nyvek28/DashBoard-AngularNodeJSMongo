@@ -1,16 +1,106 @@
-<div class="wrapper wrapper-content animated fadeInRight">
+<div ng-controller="index_controller">
+  <div ng-if="!index.loadingData">
     <div class="row">
         <div class="col-lg-12">
-            <div class="text-center m-t-lg">
-                <h1>
-                    {{main.helloText}}
-                </h1>
-                <small>
-                    {{main.descriptionText}}
+            <div class="widget-head-color-box red-bg p-lg text-center">
+                <div class="m-b-md">
+                    <h2 class="font-bold no-margins">
+                        {{index.user.name}}
+                    </h2>
+                    <small>.Net Developer</small>
+                </div>
+                <img ng-src="{{index.user.picture.data.url}}" class="img-circle circle-border m-b-md" alt="profile">
 
-                    <i class="glyphicon glyphicon-pencil"></i>
-                </small>
+                <div>
+                    <span>100 Tweets</span> |
+                    <span>350 Following</span> |
+                    <span>610 Followers</span>
+                </div>
+            </div>
+            <div class="widget-text-box">
+                <h4 class="media-heading">{{index.user.name}}</h4>
+                <p>Es una persona muy proactiva, la cual le encanta trabajar en equipo.</p>
+                <div class="text-right">
+                    <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                    <a class="btn btn-xs btn-primary"><i class="fa fa-heart"></i> Love</a>
+                </div>
             </div>
         </div>
-    </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-3">
+              <div class="widget style1 red-bg">
+                  <div class="row">
+                      <div class="col-xs-4 text-center">
+                          <i class="fa fa-trophy fa-5x"></i>
+                      </div>
+                      <div class="col-xs-8 text-right">
+                          <span> Today income </span>
+
+                          <h2 class="font-bold">$ 4,232</h2>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3">
+              <div class="widget style1 red-bg">
+                  <div class="row">
+                      <div class="col-xs-4">
+                          <i class="fa fa-cloud fa-5x"></i>
+                      </div>
+                      <div class="col-xs-8 text-right">
+                          <span> Today degrees </span>
+
+                          <h2 class="font-bold">26'C</h2>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3">
+              <div class="widget style1 red-bg">
+                  <div class="row">
+                      <div class="col-xs-4">
+                          <i class="fa fa-envelope-o fa-5x"></i>
+                      </div>
+                      <div class="col-xs-8 text-right">
+                          <span> New messages </span>
+
+                          <h2 class="font-bold">260</h2>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3">
+              <div class="widget style1 red-bg">
+                  <div class="row">
+                      <div class="col-xs-4">
+                          <i class="fa fa-music fa-5x"></i>
+                      </div>
+                      <div class="col-xs-8 text-right">
+                          <span> New albums </span>
+
+                          <h2 class="font-bold">12</h2>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3" ng-repeat="sibilling in index.user.family.data">
+          <div class="ibox-content text-center">
+            <h1>{{sibilling.name}}</h1>
+
+            <div class="m-b-sm">
+                <img alt="image" class="img-circle" ng-src="{{sibilling.picture.data.url}}">
+            </div>
+            <p class="font-bold">{{sibilling.name}}</p>
+
+            <div class="text-center">
+                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                <a class="btn btn-xs btn-primary"><i class="fa fa-heart"></i> Love</a>
+            </div>
+        </div>
+      </div>
+      </div>  
+  </div>
 </div>
