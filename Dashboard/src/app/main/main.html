@@ -86,20 +86,16 @@
           </div>
       </div>
       <div class="row">
-        <div class="col-md-3" ng-repeat="sibilling in index.user.family.data">
+        <div class="col-md-3" ng-repeat="page in index.user.likes.data" ng-attr-title="{{page.name}}">
           <div class="ibox-content text-center">
-            <h1>{{sibilling.name}}</h1>
+            <h2>{{page.name | cutText:20 }}</h2>
 
             <div class="m-b-sm">
-                <img alt="image" class="img-circle" ng-src="{{sibilling.picture.data.url}}">
+                <img alt="image" class="img-circle" ng-src="{{page.picture.data.url}}">
             </div>
-            <p class="font-bold">{{sibilling.name}}</p>
-
-            <div class="text-center">
-                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
-                <a class="btn btn-xs btn-primary"><i class="fa fa-heart"></i> Love</a>
-            </div>
+            <p class="font-bold">{{page.category}}</p>
         </div>
+        <br>
       </div>
       </div>  
   </div>

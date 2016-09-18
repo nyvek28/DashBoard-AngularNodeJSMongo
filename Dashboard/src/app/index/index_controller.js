@@ -17,14 +17,14 @@ angular.module('inspinia')
             version    : 'v2.7'
           });
           FB.login(function(){},
-             {scope: 'user_events, user_videos, user_friends, email, publish_actions, public_profile,user_relationships, user_relationship_details' });
-
+             {scope: 'user_friends, email, public_profile, user_likes, user_events'});
           FB.getLoginStatus(function(response) {
+
             $scope.$apply(function(){
               $scope.index.user.userId = response.authResponse.userID;
             });
             if (response.status === 'connected') {
-              FB.api('/me', {'fields': 'name,last_name,picture,email,birthday,work,family{name,picture}'}, function(response) {
+              FB.api('/me', {'fields': 'last_name,picture{url},likes{name,category,picture{url}},events{name,picture{url}},education,name'}, function(response) {
                 $scope.$apply(function(){
                   angular.extend($scope.index.user, response);
                   $scope.index.loadingData = false;
@@ -45,6 +45,16 @@ angular.module('inspinia')
   	$scope.index.initializeFacebook();
 });
 
+angular.module('inspinia').filter('cutText', function () {
+  return function (item, length) {
+    var strItem = item.toString();
+    if(strItem.length > length){
+      return strItem.substring(0,length-2) + '..';
+    }else{
+      return strItem;
+    }
+  };
+});
 
 
 
